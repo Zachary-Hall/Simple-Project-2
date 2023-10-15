@@ -45,25 +45,30 @@ bool LinkedList::addHead(Node* current, Node* newNode) {
     return added;
 }
 
-bool LinkedList::addNode(int id, std::string* data) {
-		bool nodeAdded = false;
-    if (id <= 0 || *data == "") {
-    nodeAdded = false;
+	
+	bool LinkedList::addNode(int id, std::string* data) {
+				bool working = false;
+				if(id <= 0 || *data == ""){
+        working = false;
+			}
+			
+				if(id > 0 && *data != ""){
+				
+        if (!head) {
+        		Node* newNode = new Node;
+        		assignNode(id, data, newNode);
+        		head = newNode;
+            newNode->next = NULL;
+            head->prev = NULL;
+            working = true;
+        } else {
+        		Node *newNode = new Node;
+        		assignNode(id, data, newNode);
+        		working = addHead(head, newNode);
+        }
     }
-
-    Node* newNode = new Node;
-    assignNode(id, data, newNode);
-
-    if (!head) {
-        head = newNode;
-        head->next = nullptr;
-        head->prev = nullptr;
-    } else {
-        nodeAdded = addHead(head, newNode);
-    }
-
-    return nodeAdded;
-}
+        return working;
+  }
 
 bool LinkedList::deleteNode(int id) {
     Node* current = head;
@@ -125,8 +130,8 @@ void LinkedList::printList(bool backwards) {
         printCount = getCount() - 1;
         while (current) {
             std::cout << printCount << "(" << current->data.id << ", " << current->data.data << ") " << std::endl;
-            printCount--;
             current = current->prev;
+						printCount--;
         }
     }
 }
@@ -150,6 +155,7 @@ int LinkedList::getCount() {
 
 bool LinkedList::clearList() {
     Node* current = head;
+    bool cleared = false;
     while (current) {
         if (current->next) {
             head = current->next;
@@ -161,7 +167,7 @@ bool LinkedList::clearList() {
     }
 
     head = nullptr;
-    return true;
+    return cleared;
 }
 
 bool LinkedList::exists(int id) {
