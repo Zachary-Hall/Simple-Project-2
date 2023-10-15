@@ -166,15 +166,15 @@ bool LinkedList::clearList() {
 
 bool LinkedList::exists(int id) {
     Node* current = head;
-
+		bool exists = false;
     while (current) {
         if (current->data.id == id) {
-            return true;
+            exists = true;
         }
         current = current->next;
     }
 
-    return false;
+    return exists;
 }
 
 LinkedList::~LinkedList() {
