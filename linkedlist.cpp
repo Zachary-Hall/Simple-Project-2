@@ -127,11 +127,14 @@ void LinkedList::printList(bool backwards) {
     }
 
     if (backwards) {
-        printCount = getCount() - 1;
-        while (current) {
-            std::cout << printCount << "(" << current->data.id << ", " << current->data.data << ") " << std::endl;
-            current = current->prev;
-						printCount--;
+        printCount = this->getCount() - 1;
+        while (current->next) {
+        	current = current->next;
+				}
+        while(current){
+					std::cout << printCount << "(" << current->data.id << ", " << current->data.data << ") " << std::endl;
+        	current = current->prev;
+					printCount--;
         }
     }
 }
