@@ -13,11 +13,9 @@ LinkedList::LinkedList() {
 
 bool LinkedList::addHead(Node* current, Node* newNode) {
 		bool added = false;
-    
 		if (current->data.id == newNode->data.id) {
     added = false;
     }
-    
     else if (current->data.id > newNode->data.id) {
         if (!current->prev) {
             head->prev = newNode;
@@ -33,7 +31,6 @@ bool LinkedList::addHead(Node* current, Node* newNode) {
         }
         added = true;
     }
-
     else if (current->next) {
         added = addHead(current->next, newNode);
     } else {
@@ -51,9 +48,7 @@ bool LinkedList::addHead(Node* current, Node* newNode) {
 				if(id <= 0 || *data == ""){
         working = false;
 			}
-			
 				if(id > 0 && *data != ""){
-				
         if (!head) {
         		Node* newNode = new Node;
         		assignNode(id, data, newNode);
@@ -95,7 +90,6 @@ bool LinkedList::deleteNode(int id) {
         }
         current = current->next;
     }
-
     return deletion;
 }
 
@@ -117,7 +111,6 @@ bool LinkedList::getNode(int id, Data* data) {
 void LinkedList::printList(bool backwards) {
     Node* current = head;
     int printCount = 0;
-
     if (!backwards) {
         while (current) {
             std::cout << printCount << "(" << current->data.id << ", " << current->data.data << ") " << std::endl;
@@ -147,12 +140,10 @@ void LinkedList::assignNode(int id, std::string* data, Node* newNode) {
 int LinkedList::getCount() {
     int count = 0;
     Node* current = head;
-
     while (current) {
         count++;
         current = current->next;
     }
-
     return count;
 }
 
@@ -168,7 +159,6 @@ bool LinkedList::clearList() {
         delete current;
         current = temp;
     }
-
     head = nullptr;
     return cleared;
 }
