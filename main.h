@@ -1,9 +1,9 @@
 /* 
  * File: main.h
- * Author: Alex Katrompas
  * 
- * DO NOT MODIFY THIS FILE
- * LEAVE THIS COMMENT HEADER HERE
+ * 
+ * 
+ * 
  */
 
 #ifndef MAIN_H
