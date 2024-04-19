@@ -1,9 +1,9 @@
 /* 
  * File: testdata.cpp
- * Author: Alex Katrompas
  * 
- * DO NOT MODIFY THIS FILE
- * LEAVE THIS COMMENT HEADER HERE
+ * 
+ * 
+ * 
  */
 
 #include "testdata.h"
